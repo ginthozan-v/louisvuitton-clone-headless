@@ -113,6 +113,9 @@ export type ShopifyCollection = {
   description: string;
   seo: SEO;
   updatedAt: string;
+  image: {
+    src: string;
+  };
 };
 
 export type ShopifyProduct = {

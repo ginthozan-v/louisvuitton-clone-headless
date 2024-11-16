@@ -35,9 +35,10 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
       <button
         onClick={openMobileMenu}
         aria-label="Open mobile menu"
-        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors md:hidden dark:border-neutral-700 dark:text-white"
+        className="flex gap-2 items-center justify-center rounded-md text-black transition-colors"
       >
-        <Bars3Icon className="h-4" />
+        <Bars3Icon className="h-5" />
+        <span className='text-sm'>Menu</span>
       </button>
       <Transition show={isOpen}>
         <Dialog onClose={closeMobileMenu} className="relative z-50">
@@ -61,26 +62,28 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-[-100%]"
           >
-            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full flex-col bg-white pb-6 dark:bg-black">
-              <div className="p-4">
+            <Dialog.Panel className="fixed bottom-0 left-0 right-0 top-0 flex h-full w-full md:w-1/3 flex-col bg-white pb-6">
+              <div >
+                <div className="p-4 lg:px-12 lg:py-5 flex items-center">
                 <button
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white"
+                  className="flex items-center justify-center text-black transition-colors dark:border-neutral-700"
                   onClick={closeMobileMenu}
                   aria-label="Close mobile menu"
                 >
-                  <XMarkIcon className="h-6" />
+                  <XMarkIcon className="h-5" />
                 </button>
+                </div>
 
-                <div className="mb-4 w-full">
+                {/* <div className="mb-4 w-full">
                   <Suspense fallback={<SearchSkeleton />}>
                     <Search />
                   </Suspense>
-                </div>
+                </div> */}
                 {menu.length ? (
-                  <ul className="flex w-full flex-col">
+                  <ul className="flex w-full flex-col px-12">
                     {menu.map((item: Menu) => (
                       <li
-                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
+                        className="py-2 text-xl text-black transition-colors hover:text-neutral-500"
                         key={item.title}
                       >
                         <Link href={item.path} prefetch={true} onClick={closeMobileMenu}>

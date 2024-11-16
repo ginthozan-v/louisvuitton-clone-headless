@@ -1,6 +1,7 @@
 import { CartProvider } from 'components/cart/cart-context';
 import { Navbar } from 'components/layout/navbar';
 import { GeistSans } from 'geist/font/sans';
+import { Roboto_Flex } from 'next/font/google'
 import { getCart } from 'lib/shopify';
 import { ensureStartsWith } from 'lib/utils';
 import { cookies } from 'next/headers';
@@ -35,14 +36,21 @@ export const metadata = {
     })
 };
 
+const roboto = Roboto_Flex({
+  subsets: ['latin'],      // Specify the subsets (e.g., latin)
+  weight: ['100', '200', '300', '400', '500', '600', '700'],           // Specify the weight (e.g., 100 for thin)
+  variable: '--font-roboto' // Optional: Define a custom CSS variable for easy usage
+});
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const cartId = (await cookies()).get('cartId')?.value;
   // Don't await the fetch, pass the Promise to the context provider
   const cart = getCart(cartId);
 
+
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+    <html lang="en" className={roboto.className}>
+      <body className="bg-neutral-50 text-black selection:bg-teal-300">
         <CartProvider cartPromise={cart}>
           <Navbar />
           <main>
