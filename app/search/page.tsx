@@ -20,6 +20,7 @@ export default async function SearchPage(props: {
 
   return (
     <>
+    <div></div>
       {/* {searchValue ? (
         <p className="mb-4">
           {products.length === 0
