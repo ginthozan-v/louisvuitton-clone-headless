@@ -26,6 +26,7 @@ export default function HomePage() {
       <FeaturedCollection collectionName="new-collection" />
       <Banner image="https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <FeaturedCollection collectionName="frontpage" />
+      
       {/* <ThreeItemGrid />
       <Carousel />
       <Footer /> */}
