@@ -17,7 +17,7 @@ const CollectionsGrid = async () => {
             <CollectionItem
               key={item.handle}
               image={item.image.src}
-              link={`collections/${item.handle}`}
+              link={`search/${item.handle}`}
               title={item.title}
             />
           ))}
