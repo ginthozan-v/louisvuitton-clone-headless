@@ -23,6 +23,7 @@ const FeaturedCollection = async ({ collectionName }: { collectionName: string }
               title={item.title}
               price={item.priceRange.maxVariantPrice.amount}
               currencyCode={item.priceRange.maxVariantPrice.currencyCode}
+              height="350"
               link={`/product/${item.handle}`}
             />
           ))}

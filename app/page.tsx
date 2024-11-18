@@ -22,14 +22,10 @@ export default function HomePage() {
         link="/"
       />
       <CollectionsGrid />
-      <Banner image="https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <Banner image="https://images.unsplash.com/photo-1731461297712-756e9603b1f9?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <FeaturedCollection collectionName="new-collection" />
-      <Banner image="https://images.unsplash.com/flagged/photo-1553802922-2eb2f7f2c65b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <Banner image="https://images.unsplash.com/photo-1731461297466-9e0c9c94f7ae?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <FeaturedCollection collectionName="frontpage" />
-      
-      {/* <ThreeItemGrid />
-      <Carousel />
-      <Footer /> */}
     </>
   );
 }
