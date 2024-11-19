@@ -34,9 +34,9 @@ export async function Navbar() {
             </div>
           </Link>
         </div>
-        <div className="hidden justify-end md:flex items-center md:w-1/3 gap-4">
-          <HeartIcon className='h-5' />
-          <UserIcon className='h-5' />
+        <div className="hidden items-center justify-end gap-4 md:flex md:w-1/3">
+          <HeartIcon className="h-5" />
+          <UserIcon className="h-5" />
           <CartModal />
         </div>
       </div>

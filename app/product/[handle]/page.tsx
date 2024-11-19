@@ -8,9 +8,10 @@ import { ProductProvider } from 'components/product/product-context';
 import { ProductDescription } from 'components/product/product-description';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
-import { Image } from 'lib/shopify/types';
+// import { Image } from 'lib/shopify/types';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import Image from 'next/image';
 
 export async function generateMetadata(props: {
   params: Promise<{ handle: string }>;
@@ -80,8 +81,34 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div className="mx-auto max-w-screen-2xl px-4">
-        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8 dark:border-neutral-800 dark:bg-black">
+      <div className="mx-auto max-w-screen-2xl">
+        <div className="grid grid-cols-2">
+          {/* Left Section */}
+          <div className="min-h-screen sticky top-0">
+            <Suspense
+              fallback={
+                <div className="relative aspect-square h-full max-h-[550px] w-full overflow-hidden" />
+              }
+            >
+              {product.images.map((image) => (
+                <Image key={image.altText} src={image.url} width={1024} height={1024} alt={image.altText} />
+              ))}
+            </Suspense>
+          </div>
+
+          {/* Right Section */}
+          <div className="sticky top-0 h-screen w-full">
+            <div className='py-40 px-48'>
+              <Suspense fallback={null}>
+                <ProductDescription product={product} />
+              </Suspense>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='bg-red-400 h-20'></div>
+      {/* <div className="mx-auto max-w-screen-2xl px-4">
+        <div className="flex flex-col rounded-lg border border-neutral-200 bg-white p-8 md:p-12 lg:flex-row lg:gap-8">
           <div className="h-full w-full basis-full lg:basis-4/6">
             <Suspense
               fallback={
@@ -104,8 +131,7 @@ export default async function ProductPage(props: { params: Promise<{ handle: str
           </div>
         </div>
         <RelatedProducts id={product.id} />
-      </div>
-      <Footer />
+      </div> */}
     </ProductProvider>
   );
 }

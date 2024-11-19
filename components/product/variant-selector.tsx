@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { useProduct, useUpdateURL } from 'components/product/product-context';
 import { ProductOption, ProductVariant } from 'lib/shopify/types';
@@ -37,7 +38,15 @@ export function VariantSelector({
 
   return options.map((option) => (
     <form key={option.id}>
-      <dl className="mb-8">
+      <div className='flex items-center justify-between'>
+        <p className="mb-4 text-sm">{option.name}</p>
+        <button className='flex items-center gap-2'>
+          <p className='text-sm'>{option.values[0]}</p>
+          <div className='w-2 h-2 bg-red-500 rounded-full'></div>
+          <ChevronRightIcon className='w-3 h-3' />
+        </button>
+      </div>
+      {/* <dl className="mb-8">
         <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
         <dd className="flex flex-wrap gap-3">
           {option.values.map((value) => {
@@ -87,7 +96,7 @@ export function VariantSelector({
             );
           })}
         </dd>
-      </dl>
+      </dl> */}
     </form>
   ));
 }

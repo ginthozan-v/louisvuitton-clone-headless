@@ -37,7 +37,8 @@ const productFragment = /* GraphQL */ `
           price {
             amount
             currencyCode
-          }
+          },
+          sku
         }
       }
     }
